@@ -1,7 +1,7 @@
 .scoreboardDiv {
   position-anchor: --tab;
   position-area: top left;
-  position: absolute;
+  position: fixed;
   display: flex;
   max-height: 700px;
   flex-direction: column;

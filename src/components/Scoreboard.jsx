@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styles from "../css/Scoreboard.module.css";
 function Scoreboard() {
-  const [highScores] = useState(JSON.parse(localStorage.getItem("highScores")));
+  const [highScores, setHighScores] = useState([]);
   const [openScore, setOpenScore] = useState(false);
+useEffect(() => {
+  let isMounted = true;
+  const raw = localStorage.getItem("highScores");
+  if (!raw) return;
+  try {
+    const parsed = JSON.parse(raw);
+    const scores = Array.isArray(parsed) ? parsed : [];
+    if (isMounted) setHighScores(scores);
+  } catch {
+    if (isMounted) setHighScores([]);
+  }
+  return () => {
+    isMounted = false;
+  };
+}, []);
+
+  
 
   return (
     highScores.length > 0 &&
