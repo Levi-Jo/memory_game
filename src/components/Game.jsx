@@ -1,7 +1,10 @@
 import styles from "../css/Game.module.css";
 import PokemonCard from "./PokemonCard";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import pokeballImg from "../assets/pokeball.png";
 function Game({ level }) {
+  const navigate = useNavigate();
   const [pokemonCards, setPokemonCards] = useState([]);
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,7 +106,7 @@ function Game({ level }) {
     scores.push(scoreObj);
     localStorage.setItem("highScores", JSON.stringify(scores));
 
-    parent.location = "home";
+    navigate("/");
   }
 
   return (
@@ -111,7 +114,7 @@ function Game({ level }) {
       {!openDialog ? (
         <div>
           <img
-            src="../src/assets/pokeball.png"
+            src={pokeballImg}
             alt="Loading..."
             className="Loading"
             style={{ display: loading ? "block" : "none" }}
