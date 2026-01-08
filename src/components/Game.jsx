@@ -31,11 +31,8 @@ function Game({ level }) {
 
     const fetchPokemon = async () => {
       try {
-        const apiKey = import.meta.env.VITE_API_KEY;
-        const res = await fetch("/api", {
-          headers: { "X-Api-Key": apiKey },
-          signal,
-        });
+
+        const res = await fetch("/api", { signal });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (!data || !Array.isArray(data)) throw new Error("No data");
