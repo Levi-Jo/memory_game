@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 4rem;
+  align-self: stretch;
+}
+li {
+  list-style: none;
+}
+ul {
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+.link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: 0.2s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.537);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  &:hover {
+    transition: 0.2s ease-in-out;
+    color: #ffcc0a;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+}
+.link.active {
+  color: #ffcc0a;
+  font-weight: 900;
+}
