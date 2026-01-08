@@ -1,0 +1,6 @@
+# Handle API requests - don't redirect these
+/api    /.netlify/functions/api    200
+/api/*  /.netlify/functions/api    200
+
+# SPA fallback - serve index.html for all other routes
+/*    /index.html   200
